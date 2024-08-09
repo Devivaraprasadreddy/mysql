@@ -1,0 +1,14 @@
+---
+- name: Install MySQL on remote Ubuntu machine
+  hosts: remote
+  become: yes
+  tasks:
+    - name: Update APT package repository cache
+      apt:
+        update_cache: yes
+
+    - name: Install MySQL server package
+      apt:
+        name: mysql-server
+        state: present
+
